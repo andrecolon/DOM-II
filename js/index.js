@@ -4,9 +4,6 @@
 // Here are some unique events you could try to use: 
 //         
 
-let sigUpForm = document.querySelector(".btn");
-console.log(sigUpForm)
-sigUpForm.textContent = "Please press Here"
 
 //[]`mouseover`
 let bgHover = document.querySelector("body")
@@ -18,7 +15,7 @@ bgHover.addEventListener("mouseenter", (event) => {
 
 //[]`keydown`
 
-let refreshpage = document.addEventListener('keydown', () => {
+let refreshpage = document.addEventListener("keydown", () => {
     location.reload();
 })
 
@@ -66,7 +63,7 @@ function getfocus() {
 
 //[]`resize` 
 let busImg = document.querySelector("img");
-window.addEventListener('resize', (event) => {
+window.addEventListener("resize", (event) => {
     busImg.src = "https://picsum.photos/1000/300"
     console.log(event.target)
 
@@ -74,19 +71,21 @@ window.addEventListener('resize', (event) => {
 
 //[]`scroll` 
 
-window.addEventListener('scroll', function() {
+window.addEventListener("scroll", function() {
     busImg.style.opacity = "0.5"
 });
 
 
 //[]`select` 
-let navLinks = document.querySelectorAll('.nav-link')
 
-
+let inputEl = document.createElement("input")
+let chooseEl = document.querySelector("nav")
+chooseEl.append(inputEl)
+console.log(inputEl)
 
 //[]`dblclick`
-let logo = document.querySelector('.logo-heading')
-logo.addEventListener('dblclick', () => {
+let logo = document.querySelector(".logo-heading")
+logo.addEventListener("dblclick", () => {
     logo.textContent = "Amazing bus!"
 })
 
@@ -95,22 +94,24 @@ logo.addEventListener('dblclick', () => {
 //For example you could change colors, animate objects, remove objects, etc.
 
 // *[] Nest two similar events somewhere in the site and prevent the event propagation properly *
-let destinGroup = document.querySelector(".content-pick")[1];
-destinGroup.addEventListener('click', (event) => {
+let destinGroup = document.querySelector(".content-pick");
+destinGroup.addEventListener("click", (event) => {
     destinGroup.style.backgroundColor = "seagreen";
     console.log("middle")
 });
 
-let destinationDiv = document.querySelector(".destination")[0];
-destinationDiv.addEventListener('click', (event) => {
+let destinationDiv = document.querySelector(".destination");
+destinationDiv.addEventListener("click", (event) => {
     destinationDiv.style.backgroundColor = "hotpink";
+    event.stopPropagation();
     console.log("start")
 });
 
 // [] Stop the navigation items from refreshing the page by using `preventDefault()`
+let navLinks = document.querySelectorAll(".nav-link")
 navLinks.forEach(title => {
 
-    title.addEventListener('click', (event) => {
+    title.addEventListener("click", (event) => {
         event.preventDefault()
         event.target.style.color = "white"
         event.target.style.backgroundColor = "gray"
