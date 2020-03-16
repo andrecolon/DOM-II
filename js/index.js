@@ -39,14 +39,54 @@ el.onwheel = zoom;
 
 
 let dragMe = document.querySelectorAll("img");
-console.log(dragMe)
+let dropZone = document.querySelectorAll("section");
+console.log(dragMe, dropZone)
 for (let i = 0; i < dragMe.length; i++) {
     dragMe.forEach(function() {
         document.getElementsByTagName("img")[i].setAttribute("draggable", "true"); //Create new attributes to each node to be draggable
     })
 
 }
+// Fill listeners
+// dragMe.addEventListener("dragstart", dragStart);
+// dragMe.addEventListener("dragend", dragEnd);
+// // Loop through sections and add listeners
 
+// for (const area of dropZone) {
+//     area.addEventListener("dragover", dragOver);
+//     area.addEventListener("dragenter", dragEnter);
+//     area.addEventListener("dragleave", dragLeave);
+//     area.addEventListener("drop", dragDrop);
+// }
+
+// // Drag Functions
+
+// function dragStart() {
+//     this.className += ' hold';
+//     setTimeout(() => (this.className = 'invisible'), 0);
+// }
+
+// function dragEnd() {
+//     this.className = 'fill';
+// }
+
+// function dragOver(e) {
+//     e.preventDefault();
+// }
+
+// function dragEnter(e) {
+//     e.preventDefault();
+//     this.className += ' hovered';
+// }
+
+// function dragLeave() {
+//     this.className = 'area';
+// }
+
+// function dragDrop() {
+//     this.className = 'area';
+//     this.append(dragMe);
+// }
 
 //[]`load` - Progress event - https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/load_event
 // Wait for all The load event is fired when an XMLHttpRequest transaction completes successfully. Node objects to be loaded then the callback function fires off
@@ -57,7 +97,7 @@ for (let i = 0; i < dragMe.length; i++) {
 
 //[]`focus` -- Does what it says- sets the target to the element chosen to be ready for an event e.g. input field, link, checkbox etc
 function getfocus() {
-    document.getElementsByTagName("button").focus();
+    document.getElementsByTagName("input").focus();
 }
 
 
