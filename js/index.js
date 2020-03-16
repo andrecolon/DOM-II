@@ -50,45 +50,6 @@ for (let i = 0; i < dragMe.length; i++) {
 
 }
 
-// function onDragStart(event) {
-//     event
-//         .dataTransfer
-//         .setData("text/plain", event.target.id);
-
-//     event
-//         .currentTarget
-//         .style
-//         .backgroundColor = 'yellow';
-// }
-
-// function onDragOver(event) {
-//     event.preventDefault();
-// }
-
-// let dropZone = document.createElement("div");
-// dropZone.classList.add("dropZone")
-// let dropZnText = document.createTextNode("Drop Me Here!");
-
-// dropZone.appendChild(dropZnText)
-// document.getElementById("div").appendChild(dropZone)
-
-// console.log(dropZone)
-
-
-// function onDrop(event) {
-//     const id = event
-//         .dataTransfer
-//         .getData('text');
-
-//     const draggableElement = document.getElementsByClassName("dropZone");
-//     const dropzone = event.target;
-
-//     dropzone.appendChild(draggableElement);
-
-//     event
-//         .dataTransfer
-//         .clearData();
-// }
 
 //[]`load` - Progress event - https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/load_event
 // Wait for all The load event is fired when an XMLHttpRequest transaction completes successfully. Node objects to be loaded then the callback function fires off
@@ -97,17 +58,14 @@ for (let i = 0; i < dragMe.length; i++) {
 //     //conosle.log()
 // })
 
-//[]`focus` 
+//[]`focus` -- Does what it says- sets the target to the element chosen to be ready for an event e.g. input field, link, checkbox etc
 function getfocus() {
-    document.getElementsByClassName("nav-link").focus();
+    document.getElementsByTagName("button").focus();
 }
 
-function losefocus() {
-    document.getElementById("nav-link").blur();
-}
 
 //[]`resize` 
-let busImg = document.getElementsByClassName("intro")[0];
+let busImg = document.querySelector("img");
 window.addEventListener('resize', (event) => {
     busImg.src = "https://picsum.photos/1000/300"
     console.log(event.target)
@@ -122,8 +80,34 @@ window.addEventListener('scroll', function() {
 
 
 //[]`select` 
-const navLinks = document.querySelectorAll('.nav-link')
+let navLinks = document.querySelectorAll('.nav-link')
 
+
+
+//[]`dblclick`
+let logo = document.querySelector('.logo-heading')
+logo.addEventListener('dblclick', () => {
+    logo.textContent = "Amazing bus!"
+})
+
+
+// Using the 10 unique events, find ways to update the DOM in creative ways.
+//For example you could change colors, animate objects, remove objects, etc.
+
+// *[] Nest two similar events somewhere in the site and prevent the event propagation properly *
+let destinGroup = document.querySelector(".content-pick")[1];
+destinGroup.addEventListener('click', (event) => {
+    destinGroup.style.backgroundColor = "seagreen";
+    console.log("middle")
+});
+
+let destinationDiv = document.querySelector(".destination")[0];
+destinationDiv.addEventListener('click', (event) => {
+    destinationDiv.style.backgroundColor = "hotpink";
+    console.log("start")
+});
+
+// [] Stop the navigation items from refreshing the page by using `preventDefault()`
 navLinks.forEach(title => {
 
     title.addEventListener('click', (event) => {
@@ -133,20 +117,3 @@ navLinks.forEach(title => {
     })
 
 })
-
-//[]`dblclick`
-let logo = document.querySelector('.logo-heading')
-logo.addEventListener('dblclick', () => {
-    logo.textContent = "Amazing bus!"
-})
-
-//[]`Prevent Default` 
-
-
-
-// Using the 10 unique events, find ways to update the DOM in creative ways.
-//For example you could change colors, animate objects, remove objects, etc.
-
-// *[] Nest two similar events somewhere in the site and prevent the event propagation properly *
-
-// [] Stop the navigation items from refreshing the page by using `preventDefault()`
